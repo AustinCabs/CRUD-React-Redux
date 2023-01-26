@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import UserList  from './components/UserList';
+import AddUser   from './components/AddUser.jsx';
+import UpdateUser   from './components/UpdateUser';
+import { Route,Routes } from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container mx-auto px-2 max-w-5xl pt-10 md:pt-32'>
+      <h1 className='text-center font-bold text-2xl mb-5 text-gray'>
+        CRUD Redux Toolkit
+      </h1>
+       <Routes>
+        <Route path='/' element={<UserList/>}/>
+        <Route path='/add' element={<AddUser/>}/>
+        <Route path='/update/:id' element={<UpdateUser/>}/>
+       </Routes>
     </div>
-  );
+    );
 }
 
 export default App;
